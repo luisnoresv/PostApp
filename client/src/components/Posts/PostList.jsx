@@ -10,7 +10,7 @@ const PostList = () => {
   // const [posts, setPosts] = useState([])
   // const [loading, setLoading] = useState(false)
 
-  // Wit useCallback
+  // With useCallback
   // const fetchPosts = useCallback(async () => {
   //   setLoading(false)
   //   try {
