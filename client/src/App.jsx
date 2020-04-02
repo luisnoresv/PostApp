@@ -1,4 +1,5 @@
 import React from 'react'
+import { ToastContainer } from 'react-toastify'
 import PostList from './components/Posts/PostList'
 import GlobalState from './context/GlobalState'
 
@@ -7,9 +8,12 @@ const App = () => {
 
   // With GlobalState, usecontext and useReducer
   return (
-    <GlobalState>
-      <PostList />
-    </GlobalState>
+    <>
+      <ToastContainer position="bottom-right" />
+      <GlobalState>
+        <PostList />
+      </GlobalState>
+    </>
   )
 }
 

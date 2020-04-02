@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Item, Segment, Header, Container } from 'semantic-ui-react'
-import postService from '../../api/postService'
+// import postService from '../../api/postService'
 import PostItem from './PostItem'
 import LoadingComponent from '../../layout/LoadingComponent'
-import useFetchPosts from '../../hooks/useFetchPosts'
+// import useFetchPosts from '../../hooks/useFetchPosts'
 import GlobalContext from '../../context/globalContext'
 
 const PostList = () => {

@@ -1,5 +1,6 @@
-import React, { useReducer, useEffect, useCallback } from 'react'
+import React, { useReducer, useCallback } from 'react'
 import PropTypes from 'prop-types'
+import { toast } from 'react-toastify'
 import postService from '../api/postService'
 import GlobalContext from './globalContext'
 import { postReducer, FETCH_POSTS, LOADING_POSTS } from './postReducer'
@@ -16,13 +17,9 @@ const GlobalState = ({ children }) => {
       dispatch({ type: LOADING_POSTS, loading: false })
     } catch (error) {
       dispatch({ type: LOADING_POSTS, loading: false })
-      console.log(error)
+      toast.error(error)
     }
   }, [])
-
-  // useEffect(() => {
-  //   fetchPosts()
-  // }, [])
 
   return (
     <GlobalContext.Provider value={{ loading: state.loading, posts: state.posts, fetchPosts }}>
