@@ -4,7 +4,7 @@ import { Item, Segment, Header, Container } from 'semantic-ui-react'
 import PostItem from './PostItem'
 import LoadingComponent from '../../layout/LoadingComponent'
 // import useFetchPosts from '../../hooks/useFetchPosts'
-import GlobalContext from '../../context/globalContext'
+import GlobalContext from '../../context/GlobalContext'
 
 const PostList = () => {
   // const [posts, setPosts] = useState([])

@@ -1,7 +1,7 @@
 import React, { useReducer, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import postService from '../api/postService'
-import GlobalContext from './globalContext'
+import GlobalContext from './GlobalContext'
 import { postReducer, FETCH_POSTS, LOADING_POSTS } from './postReducer'
 
 const GlobalState = ({ children }) => {
