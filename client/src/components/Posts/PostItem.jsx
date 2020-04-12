@@ -9,7 +9,7 @@ const PostItem = ({ post }) => {
       <Item.Content>
         <Item.Header as="a">{post.displayName}</Item.Header>
         <Item.Meta>
-          {post.userName} - <Icon name="calendar alternate outline" /> Posted on {post.postedOn}
+          @{post.userName} - <Icon name="calendar alternate outline" /> Posted on {post.postedOn}
         </Item.Meta>
         <Item.Description>
           <Item.Meta>{post.title}</Item.Meta>
