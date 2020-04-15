@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from 'react'
-import { Item, Segment, Header, Container } from 'semantic-ui-react'
+import { Item, Segment, Header, Container, Radio, Icon } from 'semantic-ui-react'
 // import postService from '../../api/postService'
 import PostItem from './PostItem'
 import LoadingComponent from '../../layout/LoadingComponent'
 // import useFetchPosts from '../../hooks/useFetchPosts'
 import GlobalContext from '../../context/GlobalContext'
+import { DARK_MODE } from '../../utils/constants'
 
 const PostList = () => {
   // const [posts, setPosts] = useState([])
@@ -57,7 +58,7 @@ const PostList = () => {
   //   </Segment>
   // )
 
-  const { loading, posts, fetchPosts } = useContext(GlobalContext)
+  const { loading, posts, fetchPosts, theme, setTheme } = useContext(GlobalContext)
 
   useEffect(() => {
     fetchPosts()
@@ -65,14 +66,24 @@ const PostList = () => {
 
   if (loading) return <LoadingComponent content="Fetching data..." />
   return (
-    <Segment>
-      <Header textAlign="center" content="Posts" />
-      <Container>
+    <>
+      <Container textAlign="center">
         <Segment>
-          <Item.Group divided>{posts && posts.map((post) => <PostItem key={post.id} post={post} />)}</Item.Group>
+          <Radio toggle onChange={setTheme} label={`Change to ${theme === DARK_MODE ? 'Light Mode' : 'Dark Mode'}`} />{' '}
+          <Icon name={theme === DARK_MODE ? 'sun' : 'moon'} color={theme === DARK_MODE ? 'yellow' : 'blue'} />
         </Segment>
       </Container>
-    </Segment>
+      <Segment className={theme}>
+        <Header textAlign="center" content="Posts" className={theme} />
+        <Container className={theme}>
+          <Segment className={theme}>
+            <Item.Group divided>
+              {posts && posts.map((post) => <PostItem key={post.id} post={post} theme={theme} />)}
+            </Item.Group>
+          </Segment>
+        </Container>
+      </Segment>
+    </>
   )
 }
 

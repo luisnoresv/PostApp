@@ -3,7 +3,9 @@ import { createContext } from 'react'
 const GlobalContext = createContext({
   loading: false,
   posts: [],
-  fetchPosts: () => {}
+  fetchPosts: () => {},
+  theme: '',
+  setTheme: () => {}
 })
 
 export default GlobalContext
